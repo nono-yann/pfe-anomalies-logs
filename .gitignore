@@ -1,0 +1,53 @@
+# ============ Python ============
+# Python crée ces dossiers de cache pour aller plus vite. Ils se régénèrent tout seuls.
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# L'environnement virtuel : il contient les bibliothèques installées (pandas, sklearn...).
+# Il est lourd, et chacun le recrée chez lui avec "pip install -r requirements.txt".
+.venv/
+venv/
+
+# ============ Secrets ============
+# Le fichier .env contiendra les adresses et mots de passe des services.
+# On partagera à la place un .env.example SANS les vraies valeurs.
+.env
+
+# ============ Notebooks ============
+# Jupyter crée des sauvegardes automatiques inutiles à partager.
+.ipynb_checkpoints/
+
+# ============ Données ============
+# On ignore tout le contenu du dossier data/...
+data/**
+# ...sauf les sous-dossiers eux-mêmes ("!" veut dire "ne PAS ignorer")...
+!data/**/
+# ...les fichiers .gitkeep, qui servent à garder les dossiers vides dans Git...
+!data/**/.gitkeep
+# ...et le README qui explique comment télécharger les données.
+!data/README.md
+# Par sécurité, on ignore aussi ces formats de données partout dans le projet.
+*.log
+*.parquet
+*.csv.gz
+
+# ============ Modèles entraînés ============
+models/**
+!models/.gitkeep
+*.joblib
+*.pkl
+*.pt
+
+# ============ Spark ============
+# Fichiers de travail créés par Spark pendant l'exécution.
+spark-warehouse/
+metastore_db/
+derby.log
+checkpoints/
+
+# ============ Éditeurs et système ============
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
